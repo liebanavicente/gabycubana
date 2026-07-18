@@ -33,13 +33,15 @@
 
 function initSite() {
   initNav();
+  initHeroEntrance();
+  initSectionTitles();
   initReveal();
   initCounters();
   initModals();
   initCardHover();
 }
 
-/* NAV — scroll glass effect */
+/* ── NAV ── */
 function initNav() {
   const nav = document.getElementById('navbar');
   if (!nav) return;
@@ -48,7 +50,100 @@ function initNav() {
   update();
 }
 
-/* SCROLL REVEAL */
+/* ── HERO ENTRANCE — pill + split-text chars + staggered elements ── */
+function initHeroEntrance() {
+  /* 1. Pill slides in immediately */
+  const pill = document.querySelector('.hero__pill');
+  if (pill) setTimeout(() => pill.classList.add('visible'), 80);
+
+  /* 2. Split hero title into chars */
+  const title = document.querySelector('.hero__title');
+  if (title) {
+    const html = title.innerHTML;
+    // Parse text nodes and span.accent, preserve <br>
+    const nodes = [...title.childNodes];
+    title.innerHTML = '';
+    let charIndex = 0;
+
+    nodes.forEach(node => {
+      if (node.nodeName === 'BR') {
+        title.appendChild(document.createElement('br'));
+        return;
+      }
+      const isAccent = node.nodeName === 'SPAN';
+      const text = node.textContent;
+      [...text].forEach(ch => {
+        const span = document.createElement('span');
+        span.className = ch === ' ' ? 'char is-space' : 'char';
+        span.textContent = ch;
+        const delay = 0.12 + charIndex * 0.038;
+        span.style.animationDelay = `${delay}s`;
+        if (isAccent) span.classList.add('accent');
+        title.appendChild(span);
+        if (ch !== ' ') charIndex++;
+      });
+    });
+  }
+
+  /* 3. Staggered fade-up for sub, ctas, proof, photo */
+  const els = [
+    { sel: '.hero__sub',    delay: 680 },
+    { sel: '.hero__ctas',   delay: 820 },
+    { sel: '.hero__proof',  delay: 960 },
+    { sel: '.hero__photo',  delay: 500 },
+  ];
+  els.forEach(({ sel, delay }) => {
+    const el = document.querySelector(sel);
+    if (el) setTimeout(() => el.classList.add('visible'), delay);
+  });
+}
+
+/* ── SECTION TITLES — word by word on scroll ── */
+function initSectionTitles() {
+  document.querySelectorAll('.section-title').forEach(title => {
+    // Split into words, preserve <br> and .accent spans
+    const nodes = [...title.childNodes];
+    title.innerHTML = '';
+    let wordIndex = 0;
+
+    nodes.forEach(node => {
+      if (node.nodeName === 'BR') {
+        title.appendChild(document.createElement('br'));
+        return;
+      }
+      const isAccent = node.nodeName === 'SPAN' && node.classList.contains('accent');
+      const text = node.textContent;
+      const words = text.split(/(\s+)/);
+
+      words.forEach(w => {
+        if (/^\s+$/.test(w)) {
+          title.appendChild(document.createTextNode(' '));
+          return;
+        }
+        const span = document.createElement('span');
+        span.className = 'word';
+        span.textContent = w;
+        span.style.animationDelay = `${wordIndex * 0.1}s`;
+        span.style.animationPlayState = 'paused';
+        if (isAccent) span.classList.add('accent');
+        title.appendChild(span);
+        wordIndex++;
+      });
+    });
+
+    // Trigger on scroll
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      title.querySelectorAll('.word').forEach(w => {
+        w.style.animationPlayState = 'running';
+      });
+      io.unobserve(title);
+    }, { threshold: 0.2 });
+    io.observe(title);
+  });
+}
+
+/* ── SCROLL REVEAL ── */
 function initReveal() {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
@@ -60,7 +155,7 @@ function initReveal() {
   els.forEach(el => io.observe(el));
 }
 
-/* ANIMATED COUNTERS */
+/* ── ANIMATED COUNTERS ── */
 function initCounters() {
   const items = document.querySelectorAll('.stats__num[data-target]');
   if (!items.length) return;
@@ -73,15 +168,14 @@ function initCounters() {
       const suffix = el.dataset.suffix || '';
       const isInt  = Number.isInteger(target);
       const dur    = 1200;
-      const start  = performance.now();
+      const t0     = performance.now();
 
       (function tick(now) {
-        const p    = Math.min((now - start) / dur, 1);
+        const p    = Math.min((now - t0) / dur, 1);
         const ease = 1 - Math.pow(1 - p, 3);
-        const val  = target * ease;
-        el.textContent = (isInt ? Math.round(val) : val.toFixed(1)) + suffix;
+        el.textContent = (isInt ? Math.round(target * ease) : (target * ease).toFixed(1)) + suffix;
         if (p < 1) requestAnimationFrame(tick);
-      })(start);
+      })(t0);
 
       io.unobserve(el);
     });
@@ -90,7 +184,7 @@ function initCounters() {
   items.forEach(el => io.observe(el));
 }
 
-/* MODALS */
+/* ── MODALS ── */
 function initModals() {
   const modals = {
     legal:   document.getElementById('modal-legal'),
@@ -113,7 +207,7 @@ function initModals() {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
 }
 
-/* LINK CARD SUBTLE HOVER TILT */
+/* ── LINK CARD 3D TILT ── */
 function initCardHover() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
   document.querySelectorAll('.link-card').forEach(card => {
@@ -121,7 +215,7 @@ function initCardHover() {
       const r  = card.getBoundingClientRect();
       const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
       const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
-      card.style.transform = `translateY(-2px) perspective(600px) rotateX(${-dy * 3}deg) rotateY(${dx * 3}deg)`;
+      card.style.transform = `translateY(-2px) perspective(600px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg)`;
     });
     card.addEventListener('mouseleave', () => { card.style.transform = ''; });
   });

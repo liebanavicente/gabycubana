@@ -242,11 +242,61 @@ img { display: block; max-width: 100%; }
 }
 
 .hero__title {
-  font-size: clamp(2.6rem, 8vw, 4rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
+  font-size: clamp(3rem, 9vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: var(--white);
+}
+
+/* ── Split-text char animation ── */
+.hero__title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(56px) rotate(4deg);
+  animation: charIn 0.55s var(--ease) forwards;
+  will-change: transform, opacity;
+}
+.hero__title .char.is-space { display: inline; }
+@keyframes charIn {
+  to { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* Pill slide-in */
+.hero__pill {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.hero__pill.visible { opacity: 1; transform: none; }
+
+/* Subtitle + CTAs + proof fade-up */
+.hero__sub, .hero__ctas, .hero__proof {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+}
+.hero__sub.visible, .hero__ctas.visible, .hero__proof.visible {
+  opacity: 1; transform: none;
+}
+
+/* Photo card slide-up */
+.hero__photo {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.hero__photo.visible { opacity: 1; transform: none; }
+
+/* Section title word animation */
+.section-title .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: wordIn 0.55s var(--ease) forwards;
+}
+@keyframes wordIn {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero__sub {
@@ -376,10 +426,10 @@ img { display: block; max-width: 100%; }
   margin-bottom: 16px;
 }
 .section-title {
-  font-size: clamp(2rem, 7vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 7.5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
   margin-bottom: 40px;
 }
 
