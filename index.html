@@ -1,407 +1,235 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-
-    <title>Gaby | Espacio Oficial +18</title>
-    <meta name="description" content="Espacio oficial de Gaby. Cubana en Barcelona, creadora de contenido exclusivo +18. Accede a mis plataformas verificadas.">
-
-    <meta property="og:type"        content="website">
-    <meta property="og:title"       content="Gaby | Contenido exclusivo +18">
-    <meta property="og:description" content="Bienvenido/a a mi espacio oficial. Accede a mis plataformas verificadas de contenido exclusivo.">
-    <meta property="og:image"       content="gaby.webp">
-    <meta property="og:image:width"  content="1260">
-    <meta property="og:image:height" content="1040">
-    <meta property="og:locale"      content="es_ES">
-
-    <meta name="twitter:card"        content="summary_large_image">
-    <meta name="twitter:title"       content="Gaby | Contenido exclusivo +18">
-    <meta name="twitter:description" content="Bienvenido/a a mi espacio oficial. Accede a mis plataformas verificadas.">
-    <meta name="twitter:image"       content="gaby.webp">
-
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaby · Espacio Exclusivo +18</title>
+  <meta name="description" content="Cubana, 21 años, Barcelona. Contenido exclusivo y original." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <!-- CURSOR GLOW -->
-    <div class="cursor-glow" id="cursor-glow"></div>
+<!-- AGE GATE -->
+<div id="age-gate" class="age-gate">
+  <div class="age-gate__blob"></div>
+  <div class="age-gate__card">
+    <div class="age-gate__logo">G</div>
+    <p class="age-gate__label">CONTENIDO +18</p>
+    <h2 class="age-gate__title">¿Tienes 18 años<br>o más?</h2>
+    <p class="age-gate__sub">Este espacio contiene contenido exclusivo para adultos.</p>
+    <button id="btn-enter" class="btn btn--pink">→&nbsp;&nbsp;Sí, tengo +18</button>
+    <button id="btn-exit" class="btn btn--ghost">No, salir</button>
+  </div>
+</div>
 
-    <!-- SCROLL PROGRESS -->
-    <div class="scroll-progress" id="scroll-progress"></div>
+<!-- SITE -->
+<div id="site" class="hidden">
 
-    <!-- BACKGROUND ORBS -->
-    <div class="bg-canvas" aria-hidden="true">
-        <div class="orb orb--1"></div>
-        <div class="orb orb--2"></div>
-        <div class="orb orb--3"></div>
-        <div class="orb orb--4"></div>
-        <div class="orb orb--5"></div>
-        <div class="orb orb--6"></div>
-    </div>
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <a href="#" class="nav__logo">G</a>
+    <span class="nav__badge">+18 · Barcelona</span>
+  </nav>
 
-    <!-- AGE GATE -->
-    <div id="age-gate" class="age-gate">
-        <div class="age-gate__bg"></div>
-        <div class="age-gate__content glass">
-            <div class="age-gate__photo-wrap">
-                <picture>
-                    <source srcset="gaby.webp" type="image/webp">
-                    <img src="gaby.jpg" alt="Gaby" class="age-gate__photo">
-                </picture>
-                <div class="age-gate__photo-glow"></div>
-            </div>
-            <div class="age-gate__brand">Gaby</div>
-            <div class="age-gate__pill">+18</div>
-            <h2 class="age-gate__title">Contenido para adultos</h2>
-            <p class="age-gate__text">
-                Este sitio contiene contenido exclusivo destinado únicamente a personas
-                mayores de 18 años. Al continuar, confirmas que cumples este requisito
-                y que el acceso a este tipo de contenido es legal en tu lugar de residencia.
-            </p>
-            <div class="age-gate__actions">
-                <button id="btn-enter" class="btn btn--coral">Soy mayor de 18</button>
-                <button id="btn-exit"  class="btn btn--ghost">Salir</button>
-            </div>
-            <p class="age-gate__legal">
-                Al continuar aceptas el
-                <a href="#" data-modal="legal">aviso legal</a>
-                y la
-                <a href="#" data-modal="privacy">política de privacidad</a>.
-            </p>
-        </div>
-    </div>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="blob blob--1"></div>
+    <div class="blob blob--2"></div>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <div id="site" class="site hidden">
-
-        <!-- BARRA DE OFERTA -->
-        <div class="offer-bar" id="offer-bar">
-            <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener noreferrer" class="offer-bar__inner">
-                <span class="offer-bar__tag">⚡ Oferta limitada</span>
-                <span class="offer-bar__text">Este mes <strong>−20%</strong> en tu suscripción</span>
-                <span class="offer-bar__countdown" id="countdown">
-                    <span class="cd-block"><span id="cd-d">00</span><small>días</small></span>
-                    <span class="cd-sep">:</span>
-                    <span class="cd-block"><span id="cd-h">00</span><small>horas</small></span>
-                    <span class="cd-sep">:</span>
-                    <span class="cd-block"><span id="cd-m">00</span><small>min</small></span>
-                    <span class="cd-sep">:</span>
-                    <span class="cd-block"><span id="cd-s">00</span><small>seg</small></span>
-                </span>
-                <span class="offer-bar__cta">Suscribirse →</span>
-            </a>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__pill">
+          <span class="hero__pill-dot"></span>
+          Cubana · Barcelona · Exclusivo
         </div>
 
-        <!-- NAVBAR -->
-        <nav class="navbar" id="navbar">
-            <div class="container navbar__inner">
-                <a href="#hero" class="navbar__brand">Gaby</a>
-                <div class="navbar__right">
-                    <span class="navbar__location">📍 Barcelona</span>
-                    <span class="navbar__badge">+18</span>
-                </div>
-            </div>
-        </nav>
+        <h1 class="hero__title">
+          Contenido que<br>no olvidarás<span class="accent">.</span>
+        </h1>
 
-        <!-- FAB -->
-        <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener noreferrer"
-           id="fab" class="fab hidden" aria-label="Ir a OnlyFans">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
-            <span>OnlyFans</span>
+        <p class="hero__sub">
+          Soy Gaby, 21 años, cubana viviendo en Barcelona.
+          Contenido original y exclusivo — solo para quienes
+          saben apreciar lo auténtico.
+        </p>
+
+        <div class="hero__ctas">
+          <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener" class="btn btn--pink">
+            →&nbsp;&nbsp;Ver mi OnlyFans
+          </a>
+          <a href="#links" class="btn btn--ghost">
+            →&nbsp;&nbsp;Todas mis redes
+          </a>
+        </div>
+
+        <div class="hero__proof">
+          <div class="proof__avatars">
+            <img src="gaby3.jpg" alt="" class="proof__av" />
+            <img src="gaby4.jpg" alt="" class="proof__av" />
+            <img src="gaby5.jpg" alt="" class="proof__av" />
+          </div>
+          <div class="proof__text">
+            <div class="proof__stars">★★★★★</div>
+            <div class="proof__label">100% contenido original</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__photo">
+        <div class="hero__photo-card">
+          <img src="gaby.jpg" alt="Gaby" class="hero__img" />
+          <div class="hero__photo-tag">
+            <span class="hero__photo-dot"></span>
+            @gabrielacubana
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats__inner">
+      <div class="stats__item">
+        <div class="stats__num" data-target="21">0</div>
+        <div class="stats__label">Años</div>
+      </div>
+      <div class="stats__divider"></div>
+      <div class="stats__item">
+        <div class="stats__num" data-target="100" data-suffix="%">0%</div>
+        <div class="stats__label">Contenido original</div>
+      </div>
+      <div class="stats__divider"></div>
+      <div class="stats__item">
+        <div class="stats__num" data-target="4.9" data-suffix="★">0★</div>
+        <div class="stats__label">Valoración</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section class="links" id="links">
+    <div class="links__inner">
+      <p class="section-label">Mis redes</p>
+      <h2 class="section-title">Un solo click.<br>Todo el contenido<span class="accent">.</span></h2>
+
+      <div class="link-cards">
+
+        <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener" class="link-card link-card--of">
+          <div class="link-card__left">
+            <div class="link-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 16.5c-3.58 0-6.5-2.92-6.5-6.5S8.42 5.5 12 5.5s6.5 2.92 6.5 6.5-2.92 6.5-6.5 6.5zm0-10a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg>
+            </div>
+            <div>
+              <div class="link-card__name">OnlyFans</div>
+              <div class="link-card__handle">@gabrielacubana</div>
+            </div>
+          </div>
+          <div class="link-card__arrow">→</div>
         </a>
 
-        <!-- HERO -->
-        <section class="hero" id="hero">
-            <div class="hero__glow hero__glow--top"></div>
-            <div class="hero__glow hero__glow--mid"></div>
-            <div class="hero__glow hero__glow--bottom"></div>
-
-            <div class="container hero__inner">
-                <div class="hero__text">
-                    <span class="hero__tag fade-up">🇨🇺 Cubana en Barcelona · Contenido +18</span>
-                    <h1 class="hero__name">Gaby</h1>
-                    <p class="hero__subtitle fade-up delay-2">
-                        Hola, soy Gaby, 21 años, cubana viviendo en Barcelona.
-                        Aquí encontrarás mis enlaces verificados y acceso a
-                        mi contenido privado exclusivo.
-                    </p>
-                    <div class="hero__proof fade-up delay-2">
-                        <div class="proof-item">
-                            <span class="proof-item__num">21</span>
-                            <span class="proof-item__label">Años</span>
-                        </div>
-                        <div class="proof-divider"></div>
-                        <div class="proof-item">
-                            <span class="proof-item__num">100%</span>
-                            <span class="proof-item__label">Original</span>
-                        </div>
-                        <div class="proof-divider"></div>
-                        <div class="proof-item">
-                            <span class="proof-item__num">★ 4.9</span>
-                            <span class="proof-item__label">Valoración</span>
-                        </div>
-                    </div>
-                    <div class="hero__cta fade-up delay-3">
-                        <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener noreferrer" class="btn btn--coral">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
-                            OnlyFans
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hero__photo-wrap fade-up delay-2">
-                    <div class="hero__photo-ring"></div>
-                    <picture>
-                        <source srcset="gaby.webp" type="image/webp">
-                        <img src="gaby.jpg" alt="Gaby" class="hero__photo">
-                    </picture>
-                    <div class="hero__photo-glow"></div>
-                </div>
+        <a href="https://instagram.com/samiii_sami1" target="_blank" rel="noopener" class="link-card link-card--ig">
+          <div class="link-card__left">
+            <div class="link-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </div>
-
-            <div class="hero__scroll">
-                <div class="hero__scroll-line"></div>
+            <div>
+              <div class="link-card__name">Instagram</div>
+              <div class="link-card__handle">@samiii_sami1</div>
             </div>
-        </section>
+          </div>
+          <div class="link-card__arrow">→</div>
+        </a>
 
-        <!-- SNEAK PEEK -->
-        <section class="peek" id="peek">
-            <div class="container">
-                <div class="section-header reveal">
-                    <div class="section-eyebrow">Vista previa</div>
-                    <h2 class="section-title">¿Qué encontrarás?</h2>
-                    <p class="section-desc">Solo los suscriptores tienen acceso al contenido completo</p>
-                </div>
-                <div class="peek__grid">
-                    <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener noreferrer" class="peek-card reveal delay-1">
-                        <div class="peek-card__img peek-card__img--1" style="--offset: 20%"></div>
-                        <div class="peek-card__overlay">
-                            <div class="peek-card__lock">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                            </div>
-                            <span class="peek-card__label">Contenido privado</span>
-                        </div>
-                    </a>
-                    <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener noreferrer" class="peek-card peek-card--tall reveal delay-2">
-                        <div class="peek-card__img peek-card__img--2" style="--offset: 10%"></div>
-                        <div class="peek-card__overlay">
-                            <div class="peek-card__lock">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                            </div>
-                            <span class="peek-card__label">Exclusivo</span>
-                        </div>
-                    </a>
-                    <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener noreferrer" class="peek-card reveal delay-3">
-                        <div class="peek-card__img peek-card__img--3" style="--offset: 30%"></div>
-                        <div class="peek-card__overlay">
-                            <div class="peek-card__lock">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                            </div>
-                            <span class="peek-card__label">VIP</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="peek__cta reveal">
-                    <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener noreferrer" class="btn btn--coral">
-                        Desbloquear todo el contenido →
-                    </a>
-                </div>
+        <a href="https://tiktok.com/@samiiiiherrera" target="_blank" rel="noopener" class="link-card link-card--tt">
+          <div class="link-card__left">
+            <div class="link-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.19 8.19 0 0 0 4.79 1.52V6.75a4.85 4.85 0 0 1-1.03-.06z"/></svg>
             </div>
-        </section>
-
-        <!-- SOBRE MÍ -->
-        <section class="about" id="about">
-            <div class="container">
-                <div class="about__wrapper reveal">
-                    <div class="section-eyebrow">Sobre mí</div>
-                    <h2 class="section-title">Hola, soy <em>Gaby</em></h2>
-                    <div class="about__divider"></div>
-                    <p class="about__text">
-                        Soy Gaby, 21 años, cubana viviendo en Barcelona. Creadora de contenido +18
-                        independiente. Este es mi espacio oficial donde encontrarás mis enlaces
-                        reales y plataformas verificadas.
-                    </p>
-                    <p class="about__text about__text--dim">
-                        Todo mi material es producido de forma independiente y completamente
-                        profesional. Aquí solo encontrarás mis canales auténticos.
-                    </p>
-                    <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener noreferrer" class="btn btn--coral about__btn">
-                        Ver mi contenido →
-                    </a>
-                </div>
+            <div>
+              <div class="link-card__name">TikTok</div>
+              <div class="link-card__handle">@samiiiiherrera</div>
             </div>
-        </section>
+          </div>
+          <div class="link-card__arrow">→</div>
+        </a>
 
-        <!-- CONTENIDO EXCLUSIVO -->
-        <section class="features" id="features">
-            <div class="container">
-                <div class="section-header reveal">
-                    <div class="section-eyebrow">Plataformas</div>
-                    <h2 class="section-title">Contenido exclusivo</h2>
-                </div>
-                <div class="features__grid">
-
-                    <div class="feature-card glass reveal delay-1">
-                        <div class="feature-card__icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-                        </div>
-                        <h3 class="feature-card__title">Fotos y contenido privado</h3>
-                        <p class="feature-card__text">
-                            Accede a mi colección de fotografías y material exclusivo, disponible
-                            únicamente para suscriptores verificados en OnlyFans.
-                        </p>
-                        <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener noreferrer" class="feature-card__link">
-                            Acceder <span>→</span>
-                        </a>
-                    </div>
-
-                    <div class="feature-card glass reveal delay-2">
-                        <div class="feature-card__icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </div>
-                        <h3 class="feature-card__title">Instagram oficial</h3>
-                        <p class="feature-card__text">
-                            Sígueme en Instagram para ver mis publicaciones del día a día,
-                            stories y el lado más personal de mi vida en Barcelona.
-                        </p>
-                        <a href="https://instagram.com/samiii_sami1" target="_blank" rel="noopener noreferrer" class="feature-card__link">
-                            Seguir <span>→</span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ENLACES OFICIALES -->
-        <section class="links" id="links">
-            <div class="container">
-                <div class="section-header reveal">
-                    <div class="section-eyebrow">Acceso directo</div>
-                    <h2 class="section-title">Mis redes oficiales</h2>
-                    <p class="section-desc">Todos mis perfiles verificados en un solo lugar</p>
-                </div>
-
-                <div class="links__list">
-
-                    <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener noreferrer" class="link-row glass reveal delay-1">
-                        <div class="link-row__avatar link-row__avatar--of">OF</div>
-                        <div class="link-row__info">
-                            <span class="link-row__name">OnlyFans</span>
-                            <span class="link-row__desc">@gabrielacubana · Suscripción mensual</span>
-                        </div>
-                        <svg class="link-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-
-                    <a href="https://instagram.com/samiii_sami1" target="_blank" rel="noopener noreferrer" class="link-row glass reveal delay-3">
-                        <div class="link-row__avatar link-row__avatar--ig">IG</div>
-                        <div class="link-row__info">
-                            <span class="link-row__name">Instagram</span>
-                            <span class="link-row__desc">@samiii_sami1 · Fotos y stories</span>
-                        </div>
-                        <svg class="link-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-
-                    <a href="https://tiktok.com/@samiiiiherrera" target="_blank" rel="noopener noreferrer" class="link-row glass reveal delay-3">
-                        <div class="link-row__avatar link-row__avatar--tt">TT</div>
-                        <div class="link-row__info">
-                            <span class="link-row__name">TikTok</span>
-                            <span class="link-row__desc">@samiiiiherrera · Vídeos y tendencias</span>
-                        </div>
-                        <svg class="link-row__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SEGURIDAD -->
-        <section class="security" id="security">
-            <div class="container">
-                <div class="security__card glass reveal">
-                    <div class="security__icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3 class="security__title">Tu seguridad, primero</h3>
-                    <p class="security__text">
-                        Para tu seguridad, utiliza únicamente los enlaces oficiales de esta
-                        página. Existen perfiles falsos que suplantan mi identidad — no me
-                        hago responsable de ellos.
-                    </p>
-                    <ul class="security__list">
-                        <li><span class="security__dot"></span>Todos los enlaces son verificados y actualizados regularmente</li>
-                        <li><span class="security__dot"></span>Nunca solicito datos personales fuera de mis plataformas oficiales</li>
-                        <li><span class="security__dot"></span>Desconfía de cualquier perfil que no figure en esta página</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer class="footer" id="footer">
-            <div class="container footer__inner">
-                <div class="footer__brand">Gaby</div>
-                <div class="footer__location">🇨🇺 Cubana · 📍 Barcelona</div>
-                <div class="footer__tags">
-                    <span>Solo para mayores de 18 años</span>
-                    <span>No se aloja contenido explícito en esta web</span>
-                    <span>Todos los enlaces redirigen a plataformas externas</span>
-                </div>
-                <nav class="footer__nav">
-                    <a href="#" data-modal="legal" class="footer__link">Aviso legal</a>
-                    <span class="footer__sep">·</span>
-                    <a href="#" data-modal="privacy" class="footer__link">Política de privacidad</a>
-                </nav>
-                <p class="footer__copy">© 2025 Gaby — Todos los derechos reservados.</p>
-            </div>
-        </footer>
-
-    </div><!-- /site -->
-
-    <!-- MODALES -->
-    <div id="modal-legal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-legal-title">
-        <div class="modal__backdrop"></div>
-        <div class="modal__box glass">
-            <button class="modal__close" aria-label="Cerrar">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-            <h2 id="modal-legal-title" class="modal__title">Aviso Legal</h2>
-            <div class="modal__body">
-                <p><strong>Titularidad.</strong> Este sitio web es propiedad y está operado por Gaby, creadora de contenido independiente.</p>
-                <p><strong>Objeto.</strong> Esta página actúa exclusivamente como directorio de enlaces oficiales y presentación de marca personal. No aloja, almacena ni distribuye contenido explícito.</p>
-                <p><strong>Restricción de edad.</strong> El acceso está restringido a personas mayores de 18 años. Al confirmar tu edad, declaras bajo tu responsabilidad que cumples este requisito.</p>
-                <p><strong>Contenido externo.</strong> Los enlaces redirigen a plataformas de terceros. No somos responsables del contenido, políticas ni condiciones de dichas plataformas.</p>
-                <p><strong>Propiedad intelectual.</strong> Todo el contenido de esta página está protegido por derechos de autor. Queda prohibida su reproducción sin autorización expresa.</p>
-                <p><strong>Naturaleza del servicio.</strong> Este sitio no ofrece ni publicita servicios presenciales de ningún tipo. Se trata exclusivamente de una web de creadora de contenido digital.</p>
-            </div>
-        </div>
+      </div>
     </div>
+  </section>
 
-    <div id="modal-privacy" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
-        <div class="modal__backdrop"></div>
-        <div class="modal__box glass">
-            <button class="modal__close" aria-label="Cerrar">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-            <h2 id="modal-privacy-title" class="modal__title">Política de Privacidad</h2>
-            <div class="modal__body">
-                <p><strong>Datos recopilados.</strong> Este sitio no recopila datos personales. Únicamente se utiliza localStorage del navegador para guardar tu confirmación de edad.</p>
-                <p><strong>Cookies.</strong> No utilizamos cookies de seguimiento ni publicidad. Solo almacenamiento técnico estrictamente necesario para el funcionamiento del sitio.</p>
-                <p><strong>Enlaces a terceros.</strong> Al hacer clic en nuestros enlaces externos serás redirigido a plataformas con sus propias políticas de privacidad. Te recomendamos revisarlas.</p>
-                <p><strong>Menores de edad.</strong> Este sitio está estrictamente restringido a mayores de 18 años. Si eres menor de edad, abandona este sitio de inmediato.</p>
-                <p><strong>Contacto.</strong> Para cualquier consulta relacionada con privacidad, puedes hacerlo a través de los canales oficiales disponibles en esta página.</p>
-            </div>
+  <!-- GALLERY PEEK -->
+  <section class="gallery">
+    <div class="gallery__inner">
+      <p class="section-label">Preview</p>
+      <h2 class="section-title">Un poco de lo<br>que te espera<span class="accent">.</span></h2>
+      <div class="gallery__grid">
+        <div class="gallery__card gallery__card--1">
+          <div class="gallery__overlay">
+            <span class="gallery__lock">🔒</span>
+            <span class="gallery__cta-text">Ver en OnlyFans</span>
+          </div>
         </div>
+        <div class="gallery__card gallery__card--2">
+          <div class="gallery__overlay">
+            <span class="gallery__lock">🔒</span>
+            <span class="gallery__cta-text">Ver en OnlyFans</span>
+          </div>
+        </div>
+        <div class="gallery__card gallery__card--3">
+          <div class="gallery__overlay">
+            <span class="gallery__lock">🔒</span>
+            <span class="gallery__cta-text">Ver en OnlyFans</span>
+          </div>
+        </div>
+      </div>
+      <a href="https://onlyfans.com/gabrielacubana" target="_blank" rel="noopener" class="btn btn--pink" style="margin-top:48px;">
+        →&nbsp;&nbsp;Acceder al contenido completo
+      </a>
     </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">G</span>
+      <p class="footer__copy">© 2025 Gaby · Espacio privado +18 · Solo adultos</p>
+      <div class="footer__links">
+        <a href="#" data-modal="legal">Aviso legal</a>
+        <a href="#" data-modal="privacy">Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /site -->
+
+<!-- MODALS -->
+<div id="modal-legal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal__backdrop">
+    <div class="modal__box">
+      <button class="modal__close" aria-label="Cerrar">✕</button>
+      <h3>Aviso Legal</h3>
+      <p>Este sitio web contiene material de carácter sexual explícito destinado únicamente a adultos mayores de 18 años. Al acceder confirmas que tienes la edad legal requerida en tu país de residencia.</p>
+      <p>Todo el contenido es ficción para adultos. Queda prohibida la reproducción o distribución sin consentimiento expreso.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-privacy" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal__backdrop">
+    <div class="modal__box">
+      <button class="modal__close" aria-label="Cerrar">✕</button>
+      <h3>Política de Privacidad</h3>
+      <p>No recopilamos datos personales. Este sitio no utiliza cookies de seguimiento. Los enlaces externos (OnlyFans, Instagram, TikTok) están sujetos a sus propias políticas de privacidad.</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
